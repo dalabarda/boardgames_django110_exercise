@@ -1,0 +1,52 @@
+{% extends "tictactoe/game_detail.html" %}
+{% load staticfiles %}
+
+{% block styling %}
+	{{ block.super }}
+	<style type="text/css">
+		.tictactoe-cell.empty:hover {
+				background-color: #48CA3B;
+				cursor: pointer;
+		}
+
+	</style>
+{% endblock styling %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script>
+        {% if game.next_to_move == game.first_player %}
+            var move_span = $('<span class="glyphicon glyphicon-remove" ></span>');
+        {% else %}
+            var move_span = $('<span class="fa fa-circle-o" style="padding-right: 2px" ></span>');
+        {% endif %}
+        $(document).ready(function(){
+            // handle click on empty squares
+            $('.empty').click(function(){
+                var el = $(this);
+                var x = el.data('x');
+                var y = el.parent().data('y');
+                $('input[name=x]').val(x);
+                $('input[name=y]').val(y);
+                $('button[type=submit]').removeClass('hidden');
+                el.children().first().remove();
+                el.append(move_span);
+            });
+        });
+                           
+    </script>
+{% endblock javascript %}
+
+
+{% block moveform %}
+		{{ block.super }}
+	<form action="" method="post">
+		{% csrf_token %}
+		{{ form.x.as_hidden }}
+		{{ form.y.as_hidden }}
+
+		<button type="submit" class="hidden">Submit!</button>
+	</form>
+{% endblock moveform %}
+
+

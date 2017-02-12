@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+ {% block content %}
+	<body>
+		{% if form.errors %}
+			<p class="text-warning">Your username and password didn't match. Please give us a valid gredential.</p>
+		{% endif %}
+
+		<form role="form" class="col-md-6" method="post" action="{% url 'boardgames_login' %}">
+			{% csrf_token %}
+			{{ form|crispy }}
+			<input class="btn btn-primary" type="submit" value="Login" />
+			<input type="hidden" name="next" value="{{ next }}" />
+		</form>
+	</body>
+ {% endblock content %}
+

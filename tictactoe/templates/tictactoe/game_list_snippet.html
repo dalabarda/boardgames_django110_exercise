@@ -1,0 +1,22 @@
+<h3 class="panel-header">{{ header }}</h3>
+
+<div class="list-group" >
+    {% for game in games_list %}
+        <a class="list-group-item" href="{{ game.get_absolute_url }}">
+            {{ game }}:
+            {% if game.status == "A" %}
+                {% if game.next_to_move == user %}Your turn{% else %}Waiting for opponents move{% endif %}
+            {% elif game.status == "D" %}
+                Draw
+            {% elif game.status == "F" and user == game.first_player %}
+                You won!
+            {% elif game.status == "S" and user == game.second_player %}
+                You won!
+            {% else %}
+                You lost!
+            {% endif %}
+            <span class="badge">{{ game.move_set.count }}</span></a>
+    {% empty %}
+        <span class="list-group-item">No games available.</span>
+    {% endfor %}
+</div>

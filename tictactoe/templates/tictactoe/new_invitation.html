@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+New Invitation
+{% endblock title %}
+
+ {% block content %}
+ 	<div class="well col-md-6">
+ 		<p>Please select the user you want to invite to play a game</p>
+ 		<form action="" method="post">
+ 			{% csrf_token %}
+ 			{{ form|crispy }}
+ 			<button type="submit">Send the invitation</button>
+ 		</form>
+ 	</div>
+ {% endblock content %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="well col-sm-6">
+        {% include "tictactoe/game_list_snippet.html" with header="All games" games_list=object_list %}
+    </div>
+{% endblock content %}

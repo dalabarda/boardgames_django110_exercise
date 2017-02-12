@@ -1,0 +1,123 @@
+## Django Procedures:
+
+1) --- setting VIRTUALENV
+	this task is depend on the python version used to create such environment. in windows, this is like:
+
+		pip install virtualenv
+		mkvirtualenv mywebsite2017
+		virtualenv project1_env
+		virtualenv -p /usr/bin/python2.6 <path/to/new/virtualenv/>
+
+		mkvirtualenv --python=c:/Users/Administrator/AppData/Local/Programs/Python/Python36/python36.exe demo
+
+		python36 -m venv C:\Users\Administrator\PythonProjects\djangular
+
+
+			
+		to activate them:
+			Scripts\activate
+			cd .\ve_mysite\
+
+
+2) --- setting DJANGO WEBPROJECT
+	python --version
+	pip install django
+	pip install (another module)
+	pip install (other modules)...
+	pip freeze --local > requirements.txt 
+		-> this command stores the python modules in a txt file in order to be imported to another project. it is quite convenient.
+	
+	django-admin.py startproject _mysite
+	cd .\_mysite\
+
+		python manage.py runserver
+		python manage.py startapp webapp01(personal)
+		python manage.py startapp webapp02(templates)
+		python manage.py startapp webapp03(blog)
+		python manage.py runserver
+
+	
+3) --- setting DJANGO DATABASES
+
+		python manage.py makemigrations
+		python manage.py makemigrations blog
+		python manage.py sqlmigrate blog 0001
+		python manage.py migrate
+
+4) --- setting DJANGO ADMIN
+
+		python manage.py createsuperuser
+	
+
+======================= Querysets and Django shell =======================
+
+python manage.py shell
+
+	>>> from django.contrib.auth.models import User
+	>>> from blog.models import Post
+	>>> user = User.objects.get(username='admin')
+	>>> post = Post.objects.create(title='Practice Title', slug='practice-title', content='This is the content', author=user)
+	>>> post.save()
+	>>> 
+	>>> Post.objects.all()
+	<QuerySet [<Post: Practice Title>]>
+	>>> Post.objects.order_by('title')
+	>>> post.published
+	datetime.datetime(2016, 10 11, 13, 59, tzinfo=<UTC>)
+	>>> post = Post.objects.get(id=1)
+	>>> post
+	<Post: Practice Title>
+	>>> post.delete()
+	>>>
+
+======================= views.py =======================
+
+
+======================= urls.py =======================
+
+
+======================= miscellaneous =======================
+
+pip install -r requirements.txt
+
+
+Import-Module virtualenvwrapper
+set-executionpolicy RemoteSigned
+
+Set-ExecutionPolicy remotesigned
+Get-ExecutionPolicy
+
+--- GITHUB --- UBUNTU
+# if you don't have it already. echo "venv/" >> ~/.gitignore 
+
+--- DJANGO SHELL ---
+
+
+
+#########################################
+boardgames notes:
+
+users created are: 'admin', 'bob', 'matilda'
+all passwords are 'feijoada'
+
+
+the file 'requirements.txt' contain he modules installed in this project.
+
+
+
+More resources about django can be found in:
+
+www.djangoproject.com
+	django website
+	
+www.revsys.com/django/cheatsheet
+	Django Cheat Sheet from Revolution Systems
+
+ccbv.co.uk
+	guide to Django Class-Based Views
+
+www.djangopackages.com
+	django packages
+
+djangosnippets.org
+	Django snippets

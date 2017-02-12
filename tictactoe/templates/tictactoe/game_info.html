@@ -1,0 +1,15 @@
+ {% if game.status == "D" %}
+    It's a draw!
+{% elif game.status == "F" and user == game.first_player %}
+    You win!
+{% elif game.status == "S" and user == game.second_player %}
+    You win!
+{% elif game.status == "S" or game.status == "F" %}
+    You lose!
+{% elif game.move_set.count > 0 %}
+    {% with last_move=game.move_set.latest %}
+        {{ last_move.player.username }} played at ({{ last_move.x }}, {{ last_move.y }}).
+    {% endwith %}
+{% else %}
+    This is a new game, waiting for {{ game.next_to_move.username }} to make the first move...
+{% endif %}

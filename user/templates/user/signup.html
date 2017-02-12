@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+New user signup
+{% endblock title %}
+
+{% block content %}
+    <div class="well col-sm-6">
+        <fieldset>
+            <legend>
+                Create an account
+            </legend>
+            <div class="panel-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <p><input type="submit" value="Go!" /></p>
+                </form>
+            </div>
+        </fieldset>
+    </div>
+{% endblock content %}
+        
+       
