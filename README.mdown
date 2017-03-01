@@ -85,21 +85,21 @@ cd _mysite
 python manage.py shell
 
 ```powershell
-	>>> from django.contrib.auth.models import User
-	>>> from blog.models import Post
-	>>> user = User.objects.get(username='admin')
-	>>> post = Post.objects.create(title='Practice Title', slug='practice-title', content='This is the content', author=user)
-	>>> post.save()
-	>>> 
-	>>> Post.objects.all()
-	<QuerySet [<Post: Practice Title>]>
-	>>> Post.objects.order_by('title')
-	>>> post.published
-	datetime.datetime(2016, 10 11, 13, 59, tzinfo=<UTC>)
-	>>> post = Post.objects.get(id=1)
-	>>> post
-	<Post: Practice Title>
-	>>> post.delete()
+>>> from django.contrib.auth.models import User
+>>> from blog.models import Post
+>>> user = User.objects.get(username='admin')
+>>> post = Post.objects.create(title='Practice Title', slug='practice-title', content='This is the content', author=user)
+>>> post.save()
+>>> 
+>>> Post.objects.all()
+<QuerySet [<Post: Practice Title>]>
+>>> Post.objects.order_by('title')
+>>> post.published
+datetime.datetime(2016, 10 11, 13, 59, tzinfo=<UTC>)
+>>> post = Post.objects.get(id=1)
+>>> post
+<Post: Practice Title>
+>>> post.delete()
 	>>>
 ```
 === views.py ===
