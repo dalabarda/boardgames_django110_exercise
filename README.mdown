@@ -1,35 +1,65 @@
-Django Fundamentals:
-
-This course teaches the basics of web development with the Django framework. It will teach you everything you need to become a productive Python web developer.
+# Django Fundamentals exercise:
 
 
+This repository is the development of a Django tictactoe game application using some important Django functionalities. The original course teaches the basics of web development with the Django framework using version 1.6 on a MAC environment. Here, I used Django 1.10 on Windows 10 machine. I hope this repository contributes to you to become a productive Python web developer. 
+:smile:
 
-## Django Procedures:
+## boardgames notes:
 
-1) --- setting VIRTUALENV
+The users created are: 'admin', 'bob', 'matilda'
+all passwords are *feijoada*.  
+The file 'requirements.txt' contain all modules installed in this project.	
 
-pip install virtualenv
-mkvirtualenv mywebsite2017
-virtualenv project1_env
-virtualenv -p /usr/bin/python2.6 <path/to/new/virtualenv/>
+More resources about django can be found in:
 
-mkvirtualenv --python=c:/Users/Administrator/AppData/Local/Programs/Python/Python36/python36.exe demo
+www.djangoproject.com	
+	django website	
+www.revsys.com/django/cheatsheet	
+	Django Cheat Sheet from Revolution Systems	
+ccbv.co.uk	
+	guide to Django Class-Based Views	
+www.djangopackages.com		
+	django packages		
+djangosnippets.org	
+	Django snippets
+
+---
+
+In this README file I intend to make a list of what I consider the most common Django procedures fo web development. 
+
+#### 1) Django Procedures on POWER SHELL:
+**a) Installing/Setting VIRTUALENV:**  
+Diferents ways to make virtual environment on windows
+
+        pip install virtualenv
+        mkvirtualenv mywebsite2017
+        virtualenv project1_env
+        virtualenv -p /usr/bin/python2.6 <path/to/new/virtualenv/>
+        mkvirtualenv --python=c:/Users/Administrator/AppData/Local/Programs/Python/Python36/python36.exe demo
+
+*moving to env directory created* :open_file_folder:
+
+**Scripts\activate**
+
+Now we are ready to start the project
 
 
-Scripts\activate
-cd .\ve_mysite\
+**b) Installing/Setting DJANGO WEBPROJECT**
 
 
-2) --- setting DJANGO WEBPROJECT
+```powershell
 	python --version
 	pip install django
 	pip install (another module)
 	pip install (other modules)...
-	pip freeze --local > requirements.txt 
-		-> this command stores the python modules in a txt file in order to be imported to another project. it is quite convenient.
+	pip freeze --local > requirements.txt # this command stores the python modules in a *.txt* file in order to be imported to another project. it is quite convenient.
+```
+Now, we can start a new project. Here I call it `_mysite`
 	
 	django-admin.py startproject _mysite
-	cd .\_mysite\
+
+moving to the project directory created :open_file_folder:  
+cd _mysite          
 
 		python manage.py runserver
 		python manage.py startapp webapp01(personal)
@@ -38,22 +68,23 @@ cd .\ve_mysite\
 		python manage.py runserver
 
 	
-3) --- setting DJANGO DATABASES
+**c) Setting up DJANGO DATABASES**
 
 		python manage.py makemigrations
 		python manage.py makemigrations blog
 		python manage.py sqlmigrate blog 0001
 		python manage.py migrate
 
-4) --- setting DJANGO ADMIN
+**d) Setting DJANGO ADMIN**
 
 		python manage.py createsuperuser
 	
 
-======================= Querysets and Django shell =======================
+#### 2) Querysets and Django shell:
 
 python manage.py shell
 
+```powershell
 	>>> from django.contrib.auth.models import User
 	>>> from blog.models import Post
 	>>> user = User.objects.get(username='admin')
@@ -70,55 +101,34 @@ python manage.py shell
 	<Post: Practice Title>
 	>>> post.delete()
 	>>>
+```
+=== views.py ===
 
-======================= views.py =======================
+=== urls.py ===
+
+#### 3) miscellaneous:
 
 
-======================= urls.py =======================
-
-
-======================= miscellaneous =======================
-
+this code will install all modules listed in this file.
+```powershell 
 pip install -r requirements.txt
+```
+
+---
 
 
-Import-Module virtualenvwrapper
+**ATENTION!**:warning:	 
+This part is under construction: :construction:		
+
+Import-Module virtualenvwrapper		
 set-executionpolicy RemoteSigned
 
 Set-ExecutionPolicy remotesigned
 Get-ExecutionPolicy
 
 --- GITHUB --- UBUNTU
-# if you don't have it already. echo "venv/" >> ~/.gitignore 
+
+if you don't have it already. 	
+	echo "venv/" >> ~/.gitignore 
 
 --- DJANGO SHELL ---
-
-
-
-#########################################
-boardgames notes:
-
-users created are: 'admin', 'bob', 'matilda'
-all passwords are 'feijoada'
-
-
-the file 'requirements.txt' contain he modules installed in this project.
-
-
-
-More resources about django can be found in:
-
-www.djangoproject.com
-	django website
-	
-www.revsys.com/django/cheatsheet
-	Django Cheat Sheet from Revolution Systems
-
-ccbv.co.uk
-	guide to Django Class-Based Views
-
-www.djangopackages.com
-	django packages
-
-djangosnippets.org
-	Django snippets
