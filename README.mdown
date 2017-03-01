@@ -27,15 +27,17 @@ djangosnippets.org
 
 In this README file I intend to make a list of what I consider the most common Django procedures fo web development. 
 
-#### 1) Django Procedures on POWER SHELL:
+### 1) Django Procedures on POWER SHELL:
 **a) Installing/Setting VIRTUALENV:**  
 Diferents ways to make virtual environment on windows
 
-        pip install virtualenv
-        mkvirtualenv mywebsite2017
-        virtualenv project1_env
-        virtualenv -p /usr/bin/python2.6 <path/to/new/virtualenv/>
-        mkvirtualenv --python=c:/Users/Administrator/AppData/Local/Programs/Python/Python36/python36.exe demo
+```powershell
+pip install virtualenv
+mkvirtualenv mywebsite2017
+virtualenv project1_env
+virtualenv -p /usr/bin/python2.6 <path/to/new/virtualenv/>
+mkvirtualenv --python=c:/Users/Administrator/AppData/Local/Programs/Python/Python36/python36.exe demo
+```
 
 *moving to env directory created* :open_file_folder:
 
@@ -48,11 +50,11 @@ Now we are ready to start the project
 
 
 ```powershell
-	python --version
-	pip install django
-	pip install (another module)
-	pip install (other modules)...
-	pip freeze --local > requirements.txt # this command stores the python modules in a *.txt* file in order to be imported to another project. it is quite convenient.
+python --version
+pip install django
+pip install (another module)
+pip install (other modules)...
+pip freeze --local > requirements.txt # this command stores the python modules in a *.txt* file in order to be imported to another project. it is quite convenient.
 ```
 Now, we can start a new project. Here I call it `_mysite`
 	
@@ -61,26 +63,28 @@ Now, we can start a new project. Here I call it `_mysite`
 moving to the project directory created :open_file_folder:  
 cd _mysite          
 
-		python manage.py runserver
-		python manage.py startapp webapp01(personal)
-		python manage.py startapp webapp02(templates)
-		python manage.py startapp webapp03(blog)
-		python manage.py runserver
-
+```powershell
+python manage.py runserver
+python manage.py startapp webapp01(personal)
+python manage.py startapp webapp02(templates)
+python manage.py startapp webapp03(blog)
+python manage.py runserver
+```
 	
 **c) Setting up DJANGO DATABASES**
 
-		python manage.py makemigrations
-		python manage.py makemigrations blog
-		python manage.py sqlmigrate blog 0001
-		python manage.py migrate
-
+```powershell 
+python manage.py makemigrations
+python manage.py makemigrations blog
+python manage.py sqlmigrate blog 0001
+python manage.py migrate
+```
 **d) Setting DJANGO ADMIN**
 
 		python manage.py createsuperuser
 	
 
-#### 2) Querysets and Django shell:
+### 2) Querysets and Django shell:
 
 python manage.py shell
 
@@ -100,7 +104,7 @@ datetime.datetime(2016, 10 11, 13, 59, tzinfo=<UTC>)
 >>> post
 <Post: Practice Title>
 >>> post.delete()
-	>>>
+>>>
 ```
 === views.py ===
 
