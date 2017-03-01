@@ -27,7 +27,7 @@ djangosnippets.org
 
 In this README file I intend to make a list of what I consider the most common Django procedures fo web development. 
 
-### 1) Django Procedures on POWER SHELL:
+### **1) Django Procedures on POWER SHELL:**
 **a) Installing/Setting VIRTUALENV:**  
 Diferents ways to make virtual environment on windows
 
